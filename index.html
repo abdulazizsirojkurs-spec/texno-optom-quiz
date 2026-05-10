@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texno Optom - Gaming PC Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FACEBOOK PIXEL CODE (START) -->
+    <!-- Bu yerga Facebook Pixel kodingizni joylashtiring -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // PIXEL_ID_NI_KIRITING yozuvi o'rniga o'zingizning Pixel ID raqamingizni yozing
+        // fbq('init', 'PIXEL_ID_NI_KIRITING'); 
+        // fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <!-- PIXEL_ID_NI_KIRITING yozuvi o'rniga o'zingizning Pixel ID raqamingizni yozing -->
+        <!-- <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID_NI_KIRITING&ev=PageView&noscript=1" /> -->
+    </noscript>
+    <!-- FACEBOOK PIXEL CODE (END) -->
+
+</head>
+<body>
+
+    <div class="quiz-container">
+        
+        <!-- Welcome Screen -->
+        <div class="step active" id="step-welcome">
+            <div class="welcome-content">
+                <img src="https://images.typeform.com/images/uhUmbxHJgIwI" alt="Gaming PC" class="welcome-img">
+                <h1 class="glow-text">Orzuingizdagi Gaming PC'ni yig'dirmoqchimisiz?</h1>
+                <p>2 daqiqa vaqtingiz bo‘lsa — byudjetingizga mos eng yaxshi PC ni topib beramiz. 100% Kafolat bilan.</p>
+                <button class="btn-primary" onclick="nextStep(0, 1)">Boshlash <span class="arrow">→</span></button>
+            </div>
+        </div>
+
+        <!-- Step 1 -->
+        <div class="step" id="step-1">
+            <div class="step-header">
+                <img src="https://images.typeform.com/images/KJDRaZXcKtHH" alt="Hozir qayerda o'ynaysiz?" class="step-img">
+                <span class="step-number">1 / 7</span>
+                <h2>Hozir qayerda o‘ynaysiz?</h2>
+            </div>
+            <div class="options-grid">
+                <div class="option" onclick="selectOption(1, 'O\'zimning eski PC imda', this)">
+                    <div class="option-letter">A</div>
+                    <div class="option-text">O'zimning eski PC imda</div>
+                </div>
+                <div class="option" onclick="selectOption(1, 'Game Club da', this)">
+                    <div class="option-letter">B</div>
+                    <div class="option-text">Game Club da</div>
+                </div>
+                <div class="option" onclick="selectOption(1, 'Yaqinimning PC sida', this)">
+                    <div class="option-letter">C</div>
+                    <div class="option-text">Yaqinimning PC sida</div>
+                </div>
+                <div class="option" onclick="selectOption(1, 'Telefonda o\'ynayman PC da o\'ynamoqchiman', this)">
+                    <div class="option-letter">D</div>
+                    <div class="option-text">Telefonda o'ynayman PC da o'ynamoqchiman</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step" id="step-2">
+            <div class="step-header">
+                <img src="https://images.typeform.com/images/PXGZowUUEwxa" alt="O'yinlar" class="step-img">
+                <span class="step-number">2 / 7</span>
+                <h2>Asosan qaysi o‘yinlarni o‘ynaysiz? <span class="hint">(Bir nechtasini tanlash mumkin)</span></h2>
+            </div>
+            <div class="options-grid">
+                <div class="option multi" onclick="toggleMultiOption(2, 'CS2', this)">
+                    <div class="option-box"></div>
+                    <div class="option-text">CS2</div>
+                </div>
+                <div class="option multi" onclick="toggleMultiOption(2, 'Valorant', this)">
+                    <div class="option-box"></div>
+                    <div class="option-text">Valorant</div>
+                </div>
+                <div class="option multi" onclick="toggleMultiOption(2, 'PUBG', this)">
+                    <div class="option-box"></div>
+                    <div class="option-text">PUBG</div>
+                </div>
+                <div class="option multi" onclick="toggleMultiOption(2, 'GTA / boshqalar', this)">
+                    <div class="option-box"></div>
+                    <div class="option-text">GTA / boshqalar</div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="btn-primary ok-btn" onclick="nextStepMulti(2, 3)">Keyingisi <span class="arrow">→</span></button>
+            </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step" id="step-3">
+            <div class="step-header">
+                <img src="https://images.typeform.com/images/nPbJvNNPyffi" alt="Maqsad" class="step-img">
+                <span class="step-number">3 / 7</span>
+                <h2>PC olishdan asosiy maqsadingiz nima?</h2>
+            </div>
+            <div class="options-grid">
+                <div class="option" onclick="selectOption(3, 'Reytingni ko‘tarish, Kuchliroq bo\'lish', this)">
+                    <div class="option-letter">A</div>
+                    <div class="option-text">Reytingni ko‘tarish, Kuchliroq bo'lish</div>
+                </div>
+                <div class="option" onclick="selectOption(3, 'Strim yoki video blogging boshlash', this)">
+                    <div class="option-letter">B</div>
+                    <div class="option-text">Strim yoki video blogging boshlash</div>
+                </div>
+                <div class="option" onclick="selectOption(3, 'Do‘stlar bilan birga o‘ynash', this)">
+                    <div class="option-letter">C</div>
+                    <div class="option-text">Do‘stlar bilan birga o‘ynash</div>
+                </div>
+                <div class="option" onclick="selectOption(3, 'Shunchaki zavqlanib o‘ynash', this)">
+                    <div class="option-letter">D</div>
+                    <div class="option-text">Shunchaki zavqlanib o‘ynash</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="step" id="step-4">
+            <div class="step-header">
+                <span class="step-number">4 / 7</span>
+                <h2>Qaysi ko‘rinishdagi PC sizni ko‘proq jalb qiladi?</h2>
+            </div>
+            <div class="picture-grid">
+                <div class="picture-option" onclick="selectOption(4, 'Deepcool CC560', this)">
+                    <img src="https://images.typeform.com/images/RUPOqLCqRrFG" alt="Deepcool CC560">
+                    <div class="picture-label">Deepcool CC560</div>
+                </div>
+                <div class="picture-option" onclick="selectOption(4, 'Zalman Z3 Plus', this)">
+                    <img src="https://images.typeform.com/images/LlkyPXRkPKuf" alt="Zalman Z3 Plus">
+                    <div class="picture-label">Zalman Z3 Plus</div>
+                </div>
+                <div class="picture-option" onclick="selectOption(4, 'Variant 3', this)">
+                    <img src="https://images.typeform.com/images/azuTESzzAvEt" alt="Variant 3">
+                    <div class="picture-label">Variant 3</div>
+                </div>
+                <div class="picture-option" onclick="selectOption(4, 'Variant 4', this)">
+                    <img src="https://images.typeform.com/images/YThUeLupqtmU" alt="Variant 4">
+                    <div class="picture-label">Variant 4</div>
+                </div>
+                <div class="picture-option" onclick="selectOption(4, 'NZXT H510', this)">
+                    <img src="https://images.typeform.com/images/PNjEerRBWSnh" alt="NZXT H510">
+                    <div class="picture-label">NZXT H510</div>
+                </div>
+                <div class="picture-option" onclick="selectOption(4, 'Variant 6', this)">
+                    <img src="https://images.typeform.com/images/pGGtROtBjdKj" alt="Variant 6">
+                    <div class="picture-label">Variant 6</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="step" id="step-5">
+            <div class="step-header">
+                <img src="https://images.typeform.com/images/ugwwFnOeonmH" alt="Byudjet" class="step-img">
+                <span class="step-number">5 / 7</span>
+                <h2>Taxminan qancha byudjet ajratgansiz?</h2>
+            </div>
+            <div class="options-grid">
+                <div class="option" onclick="selectOption(5, '450 - 600 $', this)">
+                    <div class="option-letter">A</div>
+                    <div class="option-text">450 - 600 $</div>
+                </div>
+                <div class="option" onclick="selectOption(5, '700 - 900 $', this)">
+                    <div class="option-letter">B</div>
+                    <div class="option-text">700 - 900 $</div>
+                </div>
+                <div class="option" onclick="selectOption(5, '1000 - 1200 $', this)">
+                    <div class="option-letter">C</div>
+                    <div class="option-text">1000 - 1200 $</div>
+                </div>
+                <div class="option" onclick="selectOption(5, '1300 va undan baland', this)">
+                    <div class="option-letter">D</div>
+                    <div class="option-text">1300 va undan baland</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="step" id="step-6">
+            <div class="step-header">
+                <img src="https://images.typeform.com/images/ANHUYEclvavf" alt="Muddat" class="step-img">
+                <span class="step-number">6 / 7</span>
+                <h2>PC qachon kerak bo‘ladi?</h2>
+            </div>
+            <div class="options-grid">
+                <div class="option" onclick="selectOption(6, 'Imkon qadar tez — bugun erta', this)">
+                    <div class="option-letter">A</div>
+                    <div class="option-text">Imkon qadar tez — bugun erta</div>
+                </div>
+                <div class="option" onclick="selectOption(6, 'Shu hafta', this)">
+                    <div class="option-letter">B</div>
+                    <div class="option-text">Shu hafta</div>
+                </div>
+                <div class="option" onclick="selectOption(6, '1 oyda', this)">
+                    <div class="option-letter">C</div>
+                    <div class="option-text">1 oyda</div>
+                </div>
+                <div class="option" onclick="selectOption(6, 'Hali rejalashtiryapman', this)">
+                    <div class="option-letter">D</div>
+                    <div class="option-text">Hali rejalashtiryapman</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="step" id="step-7">
+            <div class="step-header final-header">
+                <span class="step-number">7 / 7</span>
+                <h2>Tayyor. Siz uchun maxsus taklif tayyorlaymiz 🎯</h2>
+                <p>Menejerimiz tez orada bog'lanib, byudjetingizga mos eng yaxshi kompyuterni tavsiya qiladi — bepul maslahat.</p>
+            </div>
+            
+            <form id="lead-form" class="lead-form">
+                <div class="form-group">
+                    <label>Ismingiz</label>
+                    <input type="text" id="name" placeholder="Ismingizni kiriting" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefon raqamingiz</label>
+                    <input type="tel" id="phone" placeholder="+998 90 123 45 67" required>
+                </div>
+                <div class="form-group">
+                    <label>Telegram username'ingiz (ixtiyoriy)</label>
+                    <input type="text" id="telegram" placeholder="@username">
+                </div>
+                
+                <button type="submit" class="btn-primary w-100 submit-btn">Yuborish <span class="arrow">→</span></button>
+            </form>
+        </div>
+
+        <!-- Thank You Screen -->
+        <div class="step" id="step-thankyou">
+            <div class="thankyou-content">
+                <div class="success-icon">✓</div>
+                <h1 class="glow-text">Rahmat!</h1>
+                <p>Menejerimiz tez orada siz bilan bog‘lanadi.</p>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
