@@ -130,33 +130,36 @@ function submitLead() {
     const BOT_TOKEN = '8202479409:AAF72_jBy-xkZOhn_t8xg7-uoG0Vl5v81_8';
     const CHAT_ID = '426689201';
     
-    const message = `🔥 <b>Yangi mijoz (Quiz)</b>
+    const message = `🔥 Yangi mijoz (Quiz)
 
-👤 <b>Ism:</b> ${answers.leadInfo.name}
-📞 <b>Telefon:</b> ${answers.leadInfo.phone}
-✈️ <b>Telegram:</b> ${answers.leadInfo.telegram || "Kiritilmadi"}
+👤 Ism: ${answers.leadInfo.name}
+📞 Telefon: ${answers.leadInfo.phone}
+✈️ Telegram: ${answers.leadInfo.telegram || "Kiritilmadi"}
 
-🎮 <b>Qayerda o'ynaydi:</b> ${answers.step1}
-🎯 <b>O'yinlar:</b> ${answers.step2.join(', ')}
-🚀 <b>Maqsad:</b> ${answers.step3}
-💻 <b>PC Korinishi:</b> ${answers.step4}
-💰 <b>Byudjet:</b> ${answers.step5}
-⏳ <b>Qachon kerak:</b> ${answers.step6}`;
-
-    const formData = new URLSearchParams();
-    formData.append('chat_id', CHAT_ID);
-    formData.append('text', message);
-    formData.append('parse_mode', 'HTML');
+🎮 Qayerda o'ynaydi: ${answers.step1}
+🎯 O'yinlar: ${answers.step2.join(', ')}
+🚀 Maqsad: ${answers.step3}
+💻 PC Korinishi: ${answers.step4}
+💰 Byudjet: ${answers.step5}
+⏳ Qachon kerak: ${answers.step6}`;
 
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message
+        })
     })
-    .then(response => {
+    .then(response => response.json())
+    .then(data => {
+        console.log('Telegram response:', data);
         nextStep(7, 'thankyou');
     })
     .catch(error => {
-        console.error('Error:', error);
+        console.error('Error sending to Telegram:', error);
         nextStep(7, 'thankyou');
     });
 }
