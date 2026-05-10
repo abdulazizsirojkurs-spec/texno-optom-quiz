@@ -124,15 +124,43 @@ function submitLead() {
     }
     // ==========================================
     
-    // Simulate API call
-    setTimeout(() => {
-        // Here you would normally send 'answers' to a backend server or webhook (like Make, Zapier, Telegram Bot)
-        // Example for Telegram Bot:
-        // sendToTelegramBot(answers);
+    // ==========================================
+    // TELEGRAM BOT INTEGRATION
+    // ==========================================
+    const BOT_TOKEN = '8202479409:AAF72_jBy-xkZOhn_t8xg7-uoG0Vl5v81_8';
+    const CHAT_ID = '426689201';
+    
+    const message = `🔥 <b>Yangi mijoz (Quiz)</b>
 
+👤 <b>Ism:</b> ${answers.leadInfo.name}
+📞 <b>Telefon:</b> ${answers.leadInfo.phone}
+✈️ <b>Telegram:</b> ${answers.leadInfo.telegram || "Kiritilmadi"}
+
+🎮 <b>Qayerda o'ynaydi:</b> ${answers.step1}
+🎯 <b>O'yinlar:</b> ${answers.step2.join(', ')}
+🚀 <b>Maqsad:</b> ${answers.step3}
+💻 <b>PC Korinishi:</b> ${answers.step4}
+💰 <b>Byudjet:</b> ${answers.step5}
+⏳ <b>Qachon kerak:</b> ${answers.step6}`;
+
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            chat_id: CHAT_ID,
+            text: message,
+            parse_mode: 'HTML'
+        })
+    })
+    .then(response => {
         nextStep(7, 'thankyou');
-        
-    }, 1500);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        nextStep(7, 'thankyou');
+    });
 }
 
 // Format phone number input nicely
