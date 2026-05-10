@@ -143,16 +143,14 @@ function submitLead() {
 💰 <b>Byudjet:</b> ${answers.step5}
 ⏳ <b>Qachon kerak:</b> ${answers.step6}`;
 
+    const formData = new URLSearchParams();
+    formData.append('chat_id', CHAT_ID);
+    formData.append('text', message);
+    formData.append('parse_mode', 'HTML');
+
     fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            chat_id: CHAT_ID,
-            text: message,
-            parse_mode: 'HTML'
-        })
+        body: formData
     })
     .then(response => {
         nextStep(7, 'thankyou');
